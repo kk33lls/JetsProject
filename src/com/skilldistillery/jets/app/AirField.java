@@ -73,4 +73,14 @@ public class AirField {
 			fleet.get(i).fly();
 		}
 	}
+	public void printFastestJet() {
+			Jet fastestJet = fleet.get(0);
+			for(Jet j : fleet) {
+				if(j.getSpeed() > fastestJet.getSpeed()) {
+					fastestJet = j;
+				}
+			}
+			System.out.println("====== Fastest Jet ======");
+			System.out.println(fastestJet);
+		}
 }

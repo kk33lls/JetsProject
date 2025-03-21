@@ -8,9 +8,8 @@ public abstract class Jet {
 	private long price;
 
 	public void fly() {
-		System.out.println("The " + model + " is flying at " + speed + " miles per second!!");
-		//fly() prints out the model, speed (in MPH), range, and price and the amount of time 
-		//the jet can fly until it runs out of fuel (based on speed and range).
+		System.out.println("The " + model + " is flying at " + speed + " miles per second!! "
+				+ "I can travel up to " + (range/speed) + " miles.");
 	}
 
 	public Jet(String model, long speed, long range, long price) {
