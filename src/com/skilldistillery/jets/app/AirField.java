@@ -17,7 +17,8 @@ public class AirField {
 	
 	public AirField() {
 		loadJetsFromFile("jetData.txt");
-//		fleet.add(addNewJet());
+
+		//		fleet.add(addNewJet());
 	}
 	
 	public void loadJetsFromFile(String fileName) {
@@ -26,25 +27,26 @@ public class AirField {
 			  String line;
 			  
 			  while ((line = bufIn.readLine()) != null) {
-			   
-				 System.out.println(line);
 			    
 			    String[] field = line.split(", ");
 			    
 			    String model = field[1];
-			    double speed = Double.parseDouble(field[2]);
-			    int range = Integer.parseInt(field[3]);
+			    long speed = Long.parseLong(field[2]);
+			    long range = Long.parseLong(field[3]);
 			    long price = Long.parseLong(field[4]);
 			    
 			    switch(field[0]) {
 			    case "P":
 			    	Jet passengerJet = new JetImpl(model, speed, range, price);
+			    	fleet.add(passengerJet);
 			    	break;
 			    case "F": 
 			    	Jet fighterJet = new FighterJet(model, speed, range, price);
+			    	fleet.add(fighterJet);
 			    	break;
 			    case "C":
 			    	Jet cargoCarrier = new CargoCarrier(model, speed, range, price);
+			    	fleet.add(cargoCarrier);
 			    	break;
 			    }
 			  }
@@ -54,9 +56,21 @@ public class AirField {
 			}
 	}
 	
-//	public Jet addNewJet() {
+//	public void addNewJet() {
 		//FIXME configure return
 //		return jet;
 		
 //	}
+	
+	public void listFleet() {
+		for (int i = 0; i < fleet.size(); i++) {
+			System.out.println(fleet.get(i));
+		}
+	}
+
+	public void flyInAirfield() {
+		for (int i = 0; i < fleet.size(); i++) {
+			fleet.get(i).fly();
+		}
+	}
 }

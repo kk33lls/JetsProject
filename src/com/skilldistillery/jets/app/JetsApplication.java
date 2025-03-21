@@ -2,6 +2,8 @@ package com.skilldistillery.jets.app;
 
 import java.util.Scanner;
 
+import com.skilldistillery.jets.entities.Jet;
+
 public class JetsApplication {
 	  //Airfield/Scanner declaration, initialization, and instantiation
 	private AirField airField = new AirField();
@@ -21,8 +23,10 @@ public class JetsApplication {
 			String userChoice = sc.next();
 			switch(userChoice){
 			case "1": 
+				airField.listFleet();
 				break;
 			case "2":
+				airField.flyInAirfield();
 				break;
 			case "3":
 				break;
@@ -63,4 +67,5 @@ public class JetsApplication {
 		System.out.println("8. Remove a jet from the fleet");
 		System.out.println("9. Quit");
 	}
+	
 }
