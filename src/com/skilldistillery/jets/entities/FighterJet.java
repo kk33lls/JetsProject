@@ -10,6 +10,7 @@ public class FighterJet extends Jet implements CombatReady{
 	@Override
 	public void fight() {
 		System.out.println("=================================== INCOMING ==========================================");
+		System.out.println("*explosive sounds* *explosive sounds* *explosive sounds* *explosive sounds* *explosive sounds*");
 //		System.out.println("                   \ /                                          \   /                 ");
 //	    System.out.println("                  --o--           `\\             //'      .____-/.\-____.            ");
 //		System.out.println("                                    \\           //             ~`-'~                 ");

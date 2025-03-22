@@ -1,8 +1,7 @@
 package com.skilldistillery.jets.app;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import com.skilldistillery.jets.entities.Jet;
 
 public class JetsApplication {
 	  //Airfield/Scanner declaration, initialization, and instantiation
@@ -21,6 +20,7 @@ public class JetsApplication {
 		do {
 			displayUserMenu();
 			String userChoice = sc.next();
+			sc.nextLine();
 			switch(userChoice){
 			case "1": 
 				airField.listFleet();
@@ -41,10 +41,61 @@ public class JetsApplication {
 				airField.sendFighterJets();
 				break;
 			case "7":
+				System.out.println("What kind of aircraft would you like to add? Fighter jet, cargo, or passenger?");
+				try {
+					String reply = sc.nextLine();
+					reply.toLowerCase();
+					switch (reply) {
+					// FIXME fighter jet not working, try/catch is not working
+					case "fighter jet":
+						System.out.println("Please enter the model: ");
+						String model = sc.next();
+						System.out.println("Please enter the speed: ");
+						long speed = sc.nextLong();
+						System.out.println("Please enter the range: ");
+						long range = sc.nextLong();
+						System.out.println("Please enter the price: ");
+						long price = sc.nextLong();
+						airField.addFighterJet(model, speed, range, price);
+						break;
+					case "cargo":
+						System.out.println("Please enter the model: ");
+						String model1 = sc.next();
+						System.out.println("Please enter the speed: ");
+						long speed1 = sc.nextLong();
+						System.out.println("Please enter the range: ");
+						long range1 = sc.nextLong();
+						System.out.println("Please enter the price: ");
+						long price1 = sc.nextLong();
+						airField.addCargoCarrier(model1, speed1, range1, price1);
+						break;
+					case "passenger":
+						System.out.println("Please enter the model: ");
+						String model2 = sc.next();
+						System.out.println("Please enter the speed: ");
+						long speed2 = sc.nextLong();
+						System.out.println("Please enter the range: ");
+						long range2 = sc.nextLong();
+						System.out.println("Please enter the price: ");
+						long price2 = sc.nextLong();
+						airField.addPassengerPlane(model2, speed2, range2, price2);
+						break;
+					default:
+						System.out.println("Invalid input try again.");
+						break;
+					}
+				} catch (InputMismatchException e) {
+					System.err.println(e);
+				}
 				break;
 			case "8":
+				airField.removalList();
+				System.out.println("Which jet would you like to remove? Enter the assigned number");
+				int removeOption = sc.nextInt();
+				airField.removeJet(removeOption);
 				break;
 			case "9":
+				
 				System.out.println("Time to jet, catch you on the next runway!" + "\u2708");
 				isTrue = false;
 				break;
