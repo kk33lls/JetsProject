@@ -8,7 +8,7 @@ public class CargoCarrier extends Jet implements CargoCarrierInterface{
 	}
 	@Override
 	public void loadCargo() {
-		
+		System.out.println("*stack stack* *shuffle shuffle* Cargo is getting loaded! *stack stack* *shuffle shuffle*");
 	}
 
 }

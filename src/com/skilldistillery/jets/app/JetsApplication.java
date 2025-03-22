@@ -29,12 +29,16 @@ public class JetsApplication {
 				airField.flyInAirfield();
 				break;
 			case "3":
+				airField.printFastestJet();
 				break;
 			case "4":
+				airField.printLongestRange();
 				break;
 			case "5":
+				airField.loadCargoOnAirfield();
 				break;
 			case "6":
+				airField.sendFighterJets();
 				break;
 			case "7":
 				break;
@@ -48,19 +52,17 @@ public class JetsApplication {
 					System.out.println("Inavlid input, try again!");
 					
 			}
-			//switch on user choice
-			//call an airfield method to act on user choice
+			
 		} while(isTrue);
-		
 		sc.close();
 	}
 	public void displayUserMenu() {
 		System.out.println("~~~~~~~~~~~~~~~~~~~~ Welcome to the airfield! ~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println("     please select a menu item by putting in the assigned number      ");
+		System.out.println("     please select a menu item by typing in the assigned number      ");
 		System.out.println("1. List fleet");
 		System.out.println("2. Fly all jets");
-		System.out.println("3. View fastest jet");
-		System.out.println("4. View jet with longest range");
+		System.out.println("3. View the fastest jet");
+		System.out.println("4. View the jet with longest range");
 		System.out.println("5. Load all Cargo Jets");
 		System.out.println("6. Send the Fighter Jets");
 		System.out.println("7. Add a jet to the fleet");

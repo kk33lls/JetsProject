@@ -17,8 +17,6 @@ public class AirField {
 	
 	public AirField() {
 		loadJetsFromFile("jetData.txt");
-
-		//		fleet.add(addNewJet());
 	}
 	
 	public void loadJetsFromFile(String fileName) {
@@ -58,7 +56,6 @@ public class AirField {
 	
 //	public void addNewJet() {
 		//FIXME configure return
-//		return jet;
 		
 //	}
 	
@@ -73,6 +70,7 @@ public class AirField {
 			fleet.get(i).fly();
 		}
 	}
+	
 	public void printFastestJet() {
 			Jet fastestJet = fleet.get(0);
 			for(Jet j : fleet) {
@@ -80,7 +78,39 @@ public class AirField {
 					fastestJet = j;
 				}
 			}
-			System.out.println("====== Fastest Jet ======");
+			System.out.println("============= Fastest Jet =============");
 			System.out.println(fastestJet);
 		}
+	
+	public void printLongestRange() {
+		Jet longestRange = fleet.get(0);
+		for(Jet j : fleet) {
+			if(j.getRange() > longestRange.getRange()) {
+				longestRange = j;
+			}
+		}
+		System.out.println("============= Jet with the Longest Range =============");
+		System.out.println(longestRange);
+	}
+	
+	public void loadCargoOnAirfield() {
+		for (Jet jet : fleet) {
+			if(jet instanceof CargoCarrier) {
+				CargoCarrier loadCargoDowncast = (CargoCarrier) jet;
+				loadCargoDowncast.loadCargo();
+			}
+		}
+	}
+	
+	public void sendFighterJets() {
+		for (Jet jet : fleet) {
+			if(jet instanceof FighterJet) {
+				FighterJet fighterJetDowncast = (FighterJet) jet;
+				fighterJetDowncast.fight();
+			}
+		}
+	}
+
 }
+
+
